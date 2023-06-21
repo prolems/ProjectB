@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
-    [SerializeField] private GameObject Ldoor;
-    [SerializeField] private GameObject Rdoor;
     void Start()
     {
         
@@ -14,10 +12,8 @@ public class Door : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
     }
-    void DoorAnimation()
-    {
 
-    }
+   
+   
 }

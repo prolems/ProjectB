@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
     {
         
     }
-    private void OnTriggerEnter(Collider other)
+   /* private void OnTriggerEnter(Collider other)
     {
            if(other.name == "DoorSenser")
         {
@@ -31,5 +31,5 @@ public class Player : MonoBehaviour
             GameObject.Find("DoorAnchor").
           GetComponent<Animator>().SetTrigger("close");
         }
-    }
+    }   */  
 }
