@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [HideInInspector] public bool isStart = false;
+    [HideInInspector] public bool isFinish = false;
     void Start()
     {
         
@@ -15,21 +16,43 @@ public class Player : MonoBehaviour
     {
         
     }
-   /* private void OnTriggerEnter(Collider other)
+    /* private void OnTriggerEnter(Collider other)
+     {
+            if(other.name == "DoorSenser")
+         {
+             GameObject.Find("DoorAnchor").
+             GetComponent<Animator>().SetTrigger("open");
+         }
+     }
+
+     private void OnTriggerExit(Collider other)
+     {
+         if(other.name == "DoorSenser")
+         {
+             GameObject.Find("DoorAnchor").
+           GetComponent<Animator>().SetTrigger("close");
+         }
+     }   */
+    private void OnTriggerEnter(Collider other)
     {
-           if(other.name == "DoorSenser")
+        if(other.name == "EndLine")
         {
-            GameObject.Find("DoorAnchor").
-            GetComponent<Animator>().SetTrigger("open");
+
+        }
+        if(other.name == "EndBox")
+        {
+            isFinish = true;
         }
     }
-
     private void OnTriggerExit(Collider other)
     {
-        if(other.name == "DoorSenser")
+            if(other.name == "StartLine")
         {
-            GameObject.Find("DoorAnchor").
-          GetComponent<Animator>().SetTrigger("close");
+            isStart = true;
         }
-    }   */  
+    }
+    public void Dead()
+    {
+        GetComponent<Animator>().SetTrigger("Wave");
+    }
 }
