@@ -14,25 +14,9 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+       
     }
-    /* private void OnTriggerEnter(Collider other)
-     {
-            if(other.name == "DoorSenser")
-         {
-             GameObject.Find("DoorAnchor").
-             GetComponent<Animator>().SetTrigger("open");
-         }
-     }
-
-     private void OnTriggerExit(Collider other)
-     {
-         if(other.name == "DoorSenser")
-         {
-             GameObject.Find("DoorAnchor").
-           GetComponent<Animator>().SetTrigger("close");
-         }
-     }   */
+    
     private void OnTriggerEnter(Collider other)
     {
         if(other.name == "EndLine")
@@ -54,5 +38,10 @@ public class Player : MonoBehaviour
     public void Dead()
     {
         GetComponent<Animator>().SetTrigger("Wave");
+
+    }
+    public void DeadEvent()
+    {
+
     }
 }

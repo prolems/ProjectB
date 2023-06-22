@@ -14,14 +14,15 @@ public class Game5Controller: MonoBehaviour
     int strIndex = 0;
     float curTimer;
     float strDelayTime = 0f;
-    int waitTimer = 5;
+    int waitTimer;
 
     bool isStart = false;
-    bool isStop = false;
-    Vector3 pPos;
+    public bool isStop = false;
+    public Vector3 pPos;
     
     void Start()
     {
+        waitTimer = 5;
         WaitTime();
         InvokeRepeating("WaitTime", 1f, 1f); //1초뒤에 1초마다 반복실행   
 
@@ -30,68 +31,83 @@ public class Game5Controller: MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log($"게임{isStart}");
+        Debug.Log($"플레이어{p.isStart}");
+
         if (!isStart)
             return;
+
+       else if (isStart)
+        {
             curTimer += Time.deltaTime;
-        if (curTimer >= strDelayTime)
-        {
-            curTimer = 0;
-            curStr = strs[strIndex];
-            txt.text = curStr;
-            strIndex++;
-
-
-            if (strIndex >= strs.Length)
+            if (curTimer >= strDelayTime)
             {
-                strDelayTime = Random.Range(1f, 3f);
-                isStop = true;
-                boss.rotation = Quaternion.Euler(new Vector3(0f, 180f, 0));
                 curTimer = 0;
-                strIndex = 0;
-                pPos = p.transform.position;
+                curStr = strs[strIndex];
+                txt.color = Color.black;
+                txt.text = curStr;
+                strIndex++;
+
+
+                if (strIndex >= strs.Length)
+                {
+                    isStop = true;
+                    strDelayTime = Random.Range(1f, 3f);
+                    boss.rotation = Quaternion.Euler(new Vector3(0f, 180f, 0));
+                    strIndex = 0;
+                    pPos = p.transform.position;
+                }
+                else
+                {
+                    strDelayTime = Random.Range(0.1f, 0.5f);
+                    isStop = false;
+                    boss.rotation = Quaternion.Euler(Vector3.zero);
+                }
             }
-            else
+            if (isStop)
             {
-                strDelayTime = Random.Range(0.1f, 0.5f);
-                isStop = false;
-                boss.rotation = Quaternion.Euler(Vector3.zero);
+                if ((int)pPos.z != (int)p.transform.position.z)
+                {
+                    PlayerKill();
+                }
             }
-        }
-        if (isStop)
-        {
-            if ((int)pPos.z != (int)p.transform.position.z)
+            if (p.isFinish)
             {
-                PlayerKill();
+                isStart = false;
+                txt.color = Color.blue;
+                txt.text = $"통과";
             }
         }
-        if (p.isFinish)
-        {
-            isStart = false;
-            txt.text = $"통과";
-        }
+           
     }
      
 
     void WaitTime()
     {
-        txt.text = $"게임시작 대기{waitTimer}초 전...";
+        txt.color = Color.black;
+        txt.text = $"게임시작{waitTimer}초 전...";
         waitTimer--;
 
-        if (waitTimer <0)
+        if (waitTimer < 0)
         {
-            isStart = true;
-            CancelInvoke();
-
             if (!p.isStart)
             {
                 PlayerKill();
+                isStart = false;
             }
+            else
+            {
+                isStart = true;
+            }
+            CancelInvoke("WaitTime");
         }
     }
     void PlayerKill()
     {
         txt.text = "실패";
-        p.Dead();
         audioSource.Play();
+        txt.color = Color.red;
+        p.Dead();
+      
     }
 }
