@@ -12,10 +12,13 @@ public class SimpleSampleCharacterControl : MonoBehaviour
         /// <summary>
         /// Character freely moves in the chosen direction from the perspective of the camera
         /// </summary>
-        Direct
+        Direct,
+
+            DontMove,
+            Down_Jump,
     }
 
-    [SerializeField] private float m_moveSpeed = 2;
+    [SerializeField] public float m_moveSpeed = 2;
     [SerializeField] private float m_turnSpeed = 200;
     [SerializeField] private float m_jumpForce = 4;
 
@@ -125,7 +128,26 @@ public class SimpleSampleCharacterControl : MonoBehaviour
             case ControlMode.Tank:
                 TankUpdate();
                 break;
-
+            case ControlMode.DontMove:
+                JumpingAndLanding();
+                break;
+            case ControlMode.Down_Jump:
+                {
+                    float v = Input.GetAxis("Vertical");
+                    if (v < 0)
+                    {
+                        if (GetComponent<Player>()) // Player라는 스크립트가 있으면 실행
+                        {
+                            GetComponent<Player>().SitDown();
+                        }
+                    }
+                    else
+                    {
+                        GetComponent<Player>().StandUP();
+                    }
+                }
+                JumpingAndLanding();
+                break;
             default:
                 Debug.LogError("Unsupported state");
                 break;

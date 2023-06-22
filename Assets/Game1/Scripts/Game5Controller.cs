@@ -104,9 +104,9 @@ public class Game5Controller: MonoBehaviour
     }
     void PlayerKill()
     {
+        txt.color = Color.red;
         txt.text = "½ÇÆÐ";
         audioSource.Play();
-        txt.color = Color.red;
         p.Dead();
       
     }
