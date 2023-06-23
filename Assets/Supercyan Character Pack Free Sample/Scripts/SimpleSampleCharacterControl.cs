@@ -136,9 +136,10 @@ public class SimpleSampleCharacterControl : MonoBehaviour
                     float v = Input.GetAxis("Vertical");
                     if (v < 0)
                     {
-                        if (GetComponent<Player>()) // Player라는 스크립트가 있으면 실행
+                        if (GetComponent<Player>()  ) // Player라는 스크립트가 있으면 실행
                         {
                             GetComponent<Player>().SitDown();
+                            m_animator.SetTrigger("Crouch");
                         }
                     }
                     else

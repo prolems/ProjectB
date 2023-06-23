@@ -1990,7 +1990,13 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
-  m_WarningMessage: 
+  m_WarningMessage: "\nBinding warning: Some generic clip(s) animate transforms that
+    are already bound by a Humanoid avatar. These transforms can only be changed
+    by Humanoid clips.\n\tTransform 'basic_rig'\n\tTransform 'basic_rig L Calf'\n\tTransform
+    'basic_rig'\n\tTransform 'basic_rig L Finger0'\n\tTransform 'basic_rig R Finger0'\n\tTransform
+    'basic_rig R Hand'\n\tTransform 'basic_rig L Foot'\n\tTransform 'basic_rig R
+    Forearm'\n\tTransform 'basic_rig R Calf'\n\tTransform 'basic_rig Spine'\n\tand
+    more ...\n\tFrom animation clip 'mixamo.com'"
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
@@ -2122,3 +2128,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isStart: 0
   isFinish: 0
+  m_animator: {fileID: 95665039349272077}
