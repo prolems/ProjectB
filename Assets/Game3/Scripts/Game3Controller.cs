@@ -5,13 +5,15 @@ using UnityEngine;
 
 public class Game3Controller : MonoBehaviour
 {
-    [SerializeField] List<Blocks> trans;
+    [SerializeField] List<GameObject> prefabs;
+    [SerializeField] Transform maps;
     [SerializeField] Transform parent;
-    List<GameObject> madeObjs;
-    bool ranBool = false;
+    [SerializeField] List<GameObject> blocks;
+
+   
     void Start()
     {
-       // InstantBlock();
+        InstantBlock();
     }
 
     // Update is called once per frame
@@ -20,58 +22,34 @@ public class Game3Controller : MonoBehaviour
         
     }
 
-    /*void InstantBlock()
+    void InstantBlock()
     {
-        for (int i = 0; i < 7; i++)
+        for (int b = 0; b < 14; b += 2)   //애드된블록갯수만큼(총14개)
         {
-              int ran = trans[Random.Range(0, trans.Count);
-              for (int i = 0; i < 1; i++)
-              {
-
-              }
-              Instantiate(trans[Random.Range(0, trans.Count)], parent);
-              madeObjs.Add()
-            //  RandomBool();
-              //if (ranBool)
-             // {
-              //    SwitchTrans();
-              //}
-
-              for (int j = 0; j < trans.Count; j++)
-              {
-                  Vector3 pos = trans[j].GetComponent<Transform>().position;
-                  pos.z += 2;
-                  trans[j].GetComponent<Transform>().position = pos;
-              }
-
-          }
-      }
-
-     /* public List<T> GetShuffledList<T>(List<T> _list)
-      {
-          for (int i = _list.Count-1; i > 0; i--)
-          {
-              int rnd = UnityEngine.Random.Range(0, i);
-
-              T temp = _list[i];
-              _list[i] 
-          }
-          return _list;
-      }
-
-      public void SwitchTrans()
-      {
-              var tempTrans = trans[0].GetComponent<Transform>().position;
-              trans[1].GetComponent<Transform>().position = tempTrans;
-              trans[0].GetComponent<Transform>().position = trans[1].GetComponent<Transform>().position;
-      }
-      public bool  RandomBool() 
-      {
-          if (Random.value >= 0.5)
-          {
-              return ranBool = true;
-          }
-          return ranBool = false;
-      }
-              */
-}
+            for (int j = 0; j < prefabs.Count; j++)
+            {
+                GameObject myInstance = Instantiate(prefabs[j], maps);  //한줄에 두개 생성
+                blocks.Add(myInstance);         // 블락리스트에 두개애드
+            }
+                Vector3 vec = blocks[b].transform.localPosition;
+                Vector3 vecc = blocks[b+1].transform.localPosition;
+                vec.z +=b;
+                vecc.z+=b;
+                SwitchTrans(vec, vecc, b); // x좌표 랜덤위치 변경
+                blocks[b].transform.localPosition = vec;
+                blocks[b+1].transform.localPosition = vecc;
+        }
+    }
+    public void SwitchTrans(Vector3 vec, Vector3 vecc, int b)
+    {
+        bool rand = Random.value > 0.5f;
+        vec = blocks[b].transform.localPosition;
+        vecc = blocks[b + 1].transform.localPosition;
+        Debug.Log(rand);
+        if (rand)
+        {
+            vec.x += 1;
+            vecc.x -= 1;       
+        }
+    }      
+}          
