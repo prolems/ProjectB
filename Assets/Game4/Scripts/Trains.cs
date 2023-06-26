@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FakeBlocks : MonoBehaviour
+public class Trains : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -15,13 +15,4 @@ public class FakeBlocks : MonoBehaviour
     {
         
     }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.name == "Player")
-        {
-            gameObject.GetComponent<Rigidbody>().isKinematic = false;
-        }
-    }
-   
 }

@@ -33,10 +33,18 @@ public class Game3Controller : MonoBehaviour
             }
                 Vector3 vec = blocks[b].transform.localPosition;
                 Vector3 vecc = blocks[b+1].transform.localPosition;
+            bool rand = Random.value > 0.5f;
+            vec = blocks[b].transform.localPosition;
+            vecc = blocks[b + 1].transform.localPosition;
+            Debug.Log(rand);
+            if (rand)
+            {
+                vec.x += 1;
+                vecc.x -= 1;
+            }
                 vec.z +=b;
                 vecc.z+=b;
-                SwitchTrans(vec, vecc, b); // xÁÂÇ¥ ·£´ýÀ§Ä¡ º¯°æ
-                blocks[b].transform.localPosition = vec;
+            blocks[b].transform.localPosition = vec;
                 blocks[b+1].transform.localPosition = vecc;
         }
     }
