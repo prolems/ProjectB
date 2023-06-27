@@ -8,33 +8,35 @@ public class Game4Controller : MonoBehaviour
     [SerializeField] List<GameObject> trains;
     [SerializeField] Transform plain;
 
+    //  int a = 조건(3<5) ? true(10) : false(100)
+    // 조건 3개의 경우 조건? true: 조건(else if) ? true : false(else)
     void Start()
     {
-        int randRepeat = Random.Range(4, 8);
-        InvokeRepeating("SpawnCars()",1f, randRepeat);
+        ranSpeed = 1;
+        nextCount = 1;
+        InvokeRepeating("SpawnCars", 1, ranSpeed);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        Debug.Log(ranSpeed);
     }
 
-    float curTime = 0f;
-    float carDelayTime;
+    float ranSpeed;
+    int count;
+    int nextCount;
     void SpawnCars()
     {
-        int rand = Random.Range(0, 6);      // 차 갯수 0~5개 랜덤 생성
-        for (int i = 0; i < rand; i++)
+        count++;
+        Instantiate(cars[Random.Range(0,cars.Count)], plain);
+        ranSpeed = Random.Range(2.5f, 3.5f);
+        if (count > nextCount)
         {
-            carDelayTime = Random.Range(0, 1.5f); //차 생성간격 랜덤
-            curTime += Time.deltaTime;
-            if (curTime> carDelayTime) // 0~1.5초 보다 커지면
-            {
-                curTime = 0;
-                GameObject gObj = Instantiate(cars[Random.Range(0,cars.Count)], plain);
-            }
-        }
+            count = 0;
+            CancelInvoke();
+            nextCount = Random.Range(3, 5);
 
+        }
     }
 }

@@ -10,9 +10,10 @@ public class Cars : MonoBehaviour
         
     }
 
-    // Update is called once per frame
+    float carSpeed;
     void Update()
     {
-        
+        //x -
+        gameObject.transform.Translate(Vector3.left * Time.deltaTime * carSpeed);
     }
 }
