@@ -513,6 +513,52 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &792833108
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 792833110}
+  - component: {fileID: 792833109}
+  m_Layer: 0
+  m_Name: TrainsController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &792833109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 792833108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f1cc8624b666de4ca46a878e27237e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trains: {fileID: -8976330385628713026, guid: 66d8ac2f24b4c46428cbca85f4e44f81, type: 3}
+  plain: {fileID: 426962638}
+--- !u!4 &792833110
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 792833108}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 7.4613767, y: 2.3164806, z: -6.797413}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &808166567
 GameObject:
   m_ObjectHideFlags: 0
@@ -802,7 +848,7 @@ GameObject:
   - component: {fileID: 1045631434}
   - component: {fileID: 1045631435}
   m_Layer: 0
-  m_Name: '[Game4Controller]'
+  m_Name: CarsController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -836,9 +882,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cars:
-  - {fileID: 8214508513293606143, guid: eb58baa5e1ae1cf4b943a0e40f81a1e4, type: 3}
-  - {fileID: 6431030742359124488, guid: af4f20d88da5f6d41a48b61ebcd0a552, type: 3}
-  trains: []
+  - {fileID: -2803280718556228374, guid: eb58baa5e1ae1cf4b943a0e40f81a1e4, type: 3}
+  - {fileID: 3704861066332067185, guid: af4f20d88da5f6d41a48b61ebcd0a552, type: 3}
   plain: {fileID: 426962638}
 --- !u!1 &1899760812
 GameObject:

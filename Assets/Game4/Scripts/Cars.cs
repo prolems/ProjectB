@@ -4,16 +4,26 @@ using UnityEngine;
 
 public class Cars : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public float carSpeed;
     void Start()
     {
         
     }
 
-    float carSpeed;
     void Update()
     {
-        //x -
-        gameObject.transform.Translate(Vector3.left * Time.deltaTime * carSpeed);
+        transform.Translate(Vector3.left * Time.deltaTime * carSpeed);
+       
+
+        if (gameObject.transform.localPosition.x < -1.5f)
+            Destroy(gameObject);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.name == "Player")
+            Destroy(other.gameObject);
+            Destroy(gameObject);
+            
     }
 }

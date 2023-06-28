@@ -8,8 +8,6 @@ public class Game2Controller : MonoBehaviour
     [SerializeField] SimpleSampleCharacterControl p;
  
     
-    float spawnTime;
-    float timer;
     float speedCount= 2f;
 
     int nextCOunt = 1;
