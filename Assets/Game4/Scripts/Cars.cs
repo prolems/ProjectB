@@ -12,18 +12,21 @@ public class Cars : MonoBehaviour
 
     void Update()
     {
-        transform.Translate(Vector3.left * Time.deltaTime * carSpeed);
+        transform.Translate(Vector3.forward * Time.deltaTime * carSpeed);
        
 
         if (gameObject.transform.localPosition.x < -1.5f)
+        {
             Destroy(gameObject);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.name == "Player")
+        {
             Destroy(other.gameObject);
             Destroy(gameObject);
-            
+        }
     }
 }
