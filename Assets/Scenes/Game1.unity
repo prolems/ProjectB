@@ -247,7 +247,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 358060734}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.592353, y: 3.3370306, z: -6.640789}
+  m_LocalPosition: {x: 5.592353, y: 3.341, z: -6.640789}
   m_LocalScale: {x: 10, y: 1, z: 0.19999999}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -327,7 +327,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 383509452}
-  - component: {fileID: 383509451}
+  - component: {fileID: 383509453}
   m_Layer: 0
   m_Name: '[Game5 Contoller]'
   m_TagString: Untagged
@@ -335,24 +335,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &383509451
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 383509450}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54799f17a370c684da57fbd5d15d2a67, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  txt: {fileID: 1904146328}
-  p: {fileID: 4880968507951288697}
-  audioSource: {fileID: 963194230}
-  boss: {fileID: 7756642384635671994}
-  isStop: 0
-  pPos: {x: 0, y: 0, z: 0}
 --- !u!4 &383509452
 Transform:
   m_ObjectHideFlags: 0
@@ -368,6 +350,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &383509453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 383509450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54799f17a370c684da57fbd5d15d2a67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  txt: {fileID: 1904146328}
+  p: {fileID: 4880968507951288697}
+  audioSource: {fileID: 963194230}
+  boss: {fileID: 7756642384635671994}
+  endColl: {fileID: 0}
+  isStop: 0
+  pPos: {x: 0, y: 0, z: 0}
 --- !u!1 &384580793
 GameObject:
   m_ObjectHideFlags: 0
@@ -381,7 +382,7 @@ GameObject:
   - component: {fileID: 384580796}
   - component: {fileID: 384580795}
   m_Layer: 0
-  m_Name: StartLine
+  m_Name: EndColl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -395,8 +396,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 384580793}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10.4}
-  m_LocalScale: {x: 2, y: 1, z: 20}
+  m_LocalPosition: {x: 0, y: 0, z: 10.51}
+  m_LocalScale: {x: 2, y: 1.709, z: 20}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 358060735}
@@ -410,7 +411,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 384580793}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -1619,7 +1620,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   p: {fileID: 4880968507951288697}
-  g: {fileID: 383509451}
+  g: {fileID: 383509453}
 --- !u!137 &771229765
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0
@@ -3331,7 +3332,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   p: {fileID: 4880968507951288697}
-  g: {fileID: 383509451}
+  g: {fileID: 383509453}
 --- !u!137 &1341816462
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0
@@ -4477,7 +4478,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   p: {fileID: 4880968507951288697}
-  g: {fileID: 383509451}
+  g: {fileID: 383509453}
 --- !u!1 &1435356397
 GameObject:
   m_ObjectHideFlags: 0
@@ -5452,7 +5453,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   p: {fileID: 4880968507951288697}
-  g: {fileID: 383509451}
+  g: {fileID: 383509453}
 --- !u!1 &1525422776
 GameObject:
   m_ObjectHideFlags: 0
@@ -6995,7 +6996,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   p: {fileID: 4880968507951288697}
-  g: {fileID: 383509451}
+  g: {fileID: 383509453}
 --- !u!4 &1775634452
 Transform:
   m_ObjectHideFlags: 0
@@ -7709,7 +7710,13 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
-  m_WarningMessage: 
+  m_WarningMessage: "\nBinding warning: Some generic clip(s) animate transforms that
+    are already bound by a Humanoid avatar. These transforms can only be changed
+    by Humanoid clips.\n\tTransform 'basic_rig'\n\tTransform 'basic_rig L Calf'\n\tTransform
+    'basic_rig'\n\tTransform 'basic_rig L Finger0'\n\tTransform 'basic_rig R Finger0'\n\tTransform
+    'basic_rig R Hand'\n\tTransform 'basic_rig L Foot'\n\tTransform 'basic_rig R
+    Forearm'\n\tTransform 'basic_rig R Calf'\n\tTransform 'basic_rig Spine'\n\tand
+    more ...\n\tFrom animation clip 'mixamo.com'"
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
@@ -8797,7 +8804,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4875987084689126908}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.072, y: 0, z: -39}
+  m_LocalPosition: {x: 2.072, y: 0, z: -38.47}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -8820,6 +8827,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isStart: 0
   isFinish: 0
+  m_animator: {fileID: 0}
 --- !u!4 &4880975651328177994
 Transform:
   m_ObjectHideFlags: 0

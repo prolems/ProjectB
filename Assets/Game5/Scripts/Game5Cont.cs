@@ -28,15 +28,21 @@ public class Game5Cont : MonoBehaviour
     }
     void Start()
     {
+
         Instance = this; // 자기자신을 접근
         InvokeRepeating("Count", 1f, 1f);
+        mainBttn.transform.GetChild(0).GetComponent<TMP_Text>().text = "메인으로";
     }
 
     void Update()
     {
         if (state == State.Stop)
+        {
+            mainBttn.gameObject.SetActive(true);
             return;
-        
+        }
+        else
+        {
             line.Translate(Vector3.right * Time.deltaTime * power);
             if (Input.GetKeyDown(KeyCode.A))
             {
@@ -44,8 +50,7 @@ public class Game5Cont : MonoBehaviour
                 pos.x -= 1.5f;
                 line.localPosition = pos;
             }
-        
-       
+        }
     }
     void Count()
     {
@@ -55,10 +60,11 @@ public class Game5Cont : MonoBehaviour
         {
             countTxt.text = string.Empty;
             state = State.Play;
+            mainBttn.gameObject.SetActive(false);
             CancelInvoke("Count");
         }
     }
-    public void OnclickMaion()
+    public void OnClickMain()
     {
         SceneManager.LoadScene("Main");
     }

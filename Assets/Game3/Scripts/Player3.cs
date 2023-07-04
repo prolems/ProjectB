@@ -15,6 +15,8 @@ public class Player3 : MonoBehaviour
         if(gameObject.transform.position.y < 3)
         {
             GetComponent<SimpleSampleCharacterControl>().m_moveSpeed = 0;
+            Game3Controller.Instance.Setstate = Game3Controller.State.Stop;
+            Game3Controller.Instance.SetResult = Game3Controller.Result.Lose;
         }
     }
 }

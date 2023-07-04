@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-public class Game5Controller: MonoBehaviour
+public class Game1Cont : MonoBehaviour
 {
     [SerializeField] private TMP_Text txt;
     [SerializeField] private Player p;
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private Transform boss;
+    [SerializeField] private GameObject endColl; // 미완성
     string[] strs = { "무","궁","화","꽃","이","피","었","습","니","다"};
 
     string curStr;

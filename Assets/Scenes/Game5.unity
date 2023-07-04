@@ -618,7 +618,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   line: {fileID: 1080021502}
   countTxt: {fileID: 83668409}
-  mainBttn: {fileID: 0}
+  mainBttn: {fileID: 1331291094}
 --- !u!4 &555176601
 Transform:
   m_ObjectHideFlags: 0
@@ -1601,13 +1601,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 555176599}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 555176600}
+        m_TargetAssemblyTypeName: Game5Cont, Assembly-CSharp
+        m_MethodName: OnClickMain
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
