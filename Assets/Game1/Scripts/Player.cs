@@ -7,20 +7,14 @@ public class Player : MonoBehaviour
     [HideInInspector] public bool isStart = false;
     [HideInInspector] public bool isFinish = false;
     [SerializeField] private Animator m_animator = null;
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
     void Update()
     {
        if(Input.GetKeyDown(KeyCode.DownArrow))
         {
             m_animator.SetBool("crouch", true);
-
         }
-       else if (Input.GetKeyUp(KeyCode.DownArrow))
+       else if(Input.GetKeyUp(KeyCode.DownArrow))
         {
             m_animator.SetBool("crouch", false);
         }
@@ -28,11 +22,7 @@ public class Player : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
-        if(other.name == "EndLine")
-        {
-
-        }
-        if(other.name == "EndBox")
+        if(other.name == "EndColl")
         {
             isFinish = true;
         }

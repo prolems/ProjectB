@@ -10,16 +10,16 @@ public class Game5LineColl : MonoBehaviour
     {
         if(other.name == "Win")
         {
-            Debug.Log("½Â¸®");
             Game5Cont.Instance.SetState = Game5Cont.State.Stop;
-            result.text = "½Â¸®!";
+            result.color = Color.blue;
+            result.text = "½Â¸®";
         }
         else if(other.name == "Lose")
         {
             // È¥ÀÚ¸¸ ¾µ¶§ LogError
-            Debug.Log("ÆÐ¹è");
             Game5Cont.Instance.SetState = Game5Cont.State.Stop;
-            result.text = "ÆÐ¹è!";
+            result.color = Color.red;
+            result.text = "ÆÐ¹è";
         }
     }
 }

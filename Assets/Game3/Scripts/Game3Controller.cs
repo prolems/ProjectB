@@ -55,7 +55,7 @@ public class Game3Controller : MonoBehaviour
         InstantBlock();
         state = State.Stop;
         result = Result.Default;
-        InvokeRepeating("Count", 1, 1);
+        InvokeRepeating("Count", 0, 1);
     }
 
     // Update is called once per frame
@@ -98,13 +98,21 @@ public class Game3Controller : MonoBehaviour
     int count = 3;
     void Count()
     {
+        countTxt.color = Color.black;
         countTxt.text = count.ToString();
         count--;
-        if (count < 0)
+        if ( count < -1)
+        {
+            CancelInvoke();
+            countTxt.text = string.Empty;
+           
+        }
+        else if (count < 0)
         {
             state = State.Play;
-            countTxt.text = string.Empty;
-            CancelInvoke("Count");
+            countTxt.text = "½ÃÀÛ";
+            countTxt.color = Color.green;
+
         }
     }
     void InstantBlock()

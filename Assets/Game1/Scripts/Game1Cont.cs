@@ -2,13 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 public class Game1Cont : MonoBehaviour
 {
     [SerializeField] private TMP_Text txt;
     [SerializeField] private Player p;
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private Transform boss;
-    [SerializeField] private GameObject endColl; // 미완성
+    [SerializeField] private Button mainButtn;
+    [SerializeField] private Button reButtn;
     string[] strs = { "무","궁","화","꽃","이","피","었","습","니","다"};
 
     string curStr;
@@ -23,6 +25,8 @@ public class Game1Cont : MonoBehaviour
     
     void Start()
     {
+        mainButtn.gameObject.SetActive(false);
+        reButtn.gameObject.SetActive(false);
         waitTimer = 5;
         WaitTime();
         InvokeRepeating("WaitTime", 1f, 1f); //1초뒤에 1초마다 반복실행   
@@ -38,7 +42,7 @@ public class Game1Cont : MonoBehaviour
         if (!isStart)
             return;
 
-       else if (isStart)
+        else if (isStart)
         {
             curTimer += Time.deltaTime;
             if (curTimer >= strDelayTime)
@@ -77,11 +81,12 @@ public class Game1Cont : MonoBehaviour
                 isStart = false;
                 txt.color = Color.blue;
                 txt.text = $"통과";
+                mainButtn.gameObject.SetActive(true);
+                reButtn.gameObject.SetActive(true);
             }
         }
-           
     }
-     
+  
 
     void WaitTime()
     {
@@ -109,6 +114,7 @@ public class Game1Cont : MonoBehaviour
         txt.text = "실패";
         audioSource.Play();
         p.Dead();
-      
+        mainButtn.gameObject.SetActive(true);
+        reButtn.gameObject.SetActive(true);
     }
 }
