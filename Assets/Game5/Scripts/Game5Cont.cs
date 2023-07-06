@@ -15,6 +15,7 @@ public class Game5Cont : MonoBehaviour
     [SerializeField] Transform line;
     [SerializeField] private TMP_Text countTxt;
     [SerializeField] private Button mainBttn;
+    [SerializeField] private Button reBttn;
     private float power = 3;
     private State state = State.Stop;
     private int count = 3;
@@ -39,6 +40,8 @@ public class Game5Cont : MonoBehaviour
         if (state == State.Stop)
         {
             mainBttn.gameObject.SetActive(true);
+            reBttn.gameObject.SetActive(true);
+
             return;
         }
         else
@@ -68,6 +71,7 @@ public class Game5Cont : MonoBehaviour
             countTxt.text ="Ω√¿€";
             state = State.Play;
             mainBttn.gameObject.SetActive(false);
+            reBttn.gameObject.SetActive(false);
         }
     }
     public void OnClickMain()
